@@ -15,7 +15,6 @@ const MainBody = React.forwardRef(
         }}
         className="title bg-transparent bgstyle text-light min-vh-100 d-flex align-content-center align-items-center flex-wrap m-0"
       >
-        <div id="stars"></div>
         <Container className="text-center">
           <h1 ref={ref} className="display-1">
             {title}
@@ -25,7 +24,7 @@ const MainBody = React.forwardRef(
               {message}
             </div>
           </Typist>
-          <div className="p-5">
+          <div className="p-4">
             {icons.map((icon, index) => (
               <a
                 key={`social-icon-${index}`}
