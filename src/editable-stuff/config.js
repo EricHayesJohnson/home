@@ -9,10 +9,10 @@ const mainBody = {
   lastName: "Johnson",
   message: "",
   icons: [
-    {
-      image: "fa-github",
-      url: "https://github.com/EricHayesJohnson",
-    },
+    // {
+    //   image: "fa-github",
+    //   url: "https://github.com/EricHayesJohnson",
+    // },
     {
       image: "fa-linkedin",
       url: "https://www.linkedin.com/in/eric-h-johnson",
@@ -22,11 +22,11 @@ const mainBody = {
 
 const about = {
   show: true,
-  heading: "About Me",
+  heading: "About",
   imageLink: require("../editable-stuff/headshot.png"),
   imageSize: 375,
   message:
-    "My name is Eric Johnson. I’m a web developer with a passion for front-end development, data visualization, and automated testing. As a UX Developer at Indeed.com, I’m part of a team dedicated to driving monetization for small and medium employers. My diverse background, which includes roles as a Sound Engineer, Fraud Analyst, Test Automation Engineer, and Cook in Tokyo, Japan, brings a wealth of unique experience and perspective to my current work.",
+    "I'm a software engineer passionate about front-end development, data visualization, and automated testing. As a UX Developer at Indeed.com, I contribute to monetization efforts across diverse product surfaces while upholding UI best practices and design system standards. With a background spanning Sound Engineering, Fraud Analysis, Test Automation, and even cooking in Tokyo, Japan, my work benefits from a wealth of unique experiences and perspectives.",
   resume: require("../editable-stuff/resume.pdf"),
 };
 
@@ -45,9 +45,9 @@ const repos = {
 
 const getInTouch = {
   show: true,
-  heading: "Get In Touch",
+  heading: "Contact",
   message:
-  "I'm always open to exploring new and interesting opportunities. If you'd like to get in touch, please feel free to reach out to",
+  "If you'd like to get in touch, please feel free to email me at",
   email: "contact@erichayesjohnson.com",
 };
 
