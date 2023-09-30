@@ -30,17 +30,12 @@ const about = {
   resume: require("../editable-stuff/resume.pdf"),
 };
 
-// PROJECTS SECTION
-// Setting up project lenght will automatically fetch your that number of recently updated projects, or you can set this field 0 to show none.
-//      i.e: reposLength: 0,
-// If you want to display specfic projects, add the repository names,
-//      i.e ["repository-1", "repo-2"]
 const repos = {
-  show: false,
-  heading: "Recent Projects",
-  gitHubUsername: "hashirshoaeb", //i.e."johnDoe12Gh"
-  reposLength: 4,
-  specificRepos: [],
+  show: true,
+  heading: "Projects",
+  gitHubUsername: "EricHayesJohnson",
+  reposLength: 0,
+  specificRepos: ["finance-dashboard"],
 };
 
 const getInTouch = {

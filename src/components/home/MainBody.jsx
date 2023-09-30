@@ -15,7 +15,7 @@ const MainBody = React.forwardRef(
         }}
         className="title bg-transparent bgstyle text-light min-vh-100 d-flex align-content-center align-items-center flex-wrap m-0"
       >
-        <Container className="text-center">
+        <Container className="text-center" >
           <h1 ref={ref} className="display-1">
             {title}
           </h1>
@@ -41,7 +41,7 @@ const MainBody = React.forwardRef(
             className="btn btn-outline-light btn-lg "
             href="#aboutme"
             role="button"
-            aria-label="Learn more about me"
+            aria-label="About me"
           >
             About me
           </a>

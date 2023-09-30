@@ -9,9 +9,9 @@ const ProjectCard = ({ value }) => {
     name,
     description,
     svn_url,
-    stargazers_count,
     languages_url,
     pushed_at,
+    homepage
   } = value;
   return (
     <Col md={6}>
@@ -19,7 +19,7 @@ const ProjectCard = ({ value }) => {
         <Card.Body>
           <Card.Title as="h5">{name || <Skeleton />} </Card.Title>
           <Card.Text>{(!description) ? "" : description || <Skeleton count={3} />} </Card.Text>
-          {svn_url ? <CardButtons svn_url={svn_url} /> : <Skeleton count={2} />}
+          {svn_url ? <CardButtons svn_url={svn_url} name={name} homepage={homepage} /> : <Skeleton count={2} />}
           <hr />
           {languages_url ? (
             <Language languages_url={languages_url} repo_url={svn_url} />
@@ -27,7 +27,7 @@ const ProjectCard = ({ value }) => {
             <Skeleton count={3} />
           )}
           {value ? (
-            <CardFooter star_count={stargazers_count} repo_url={svn_url} pushed_at={pushed_at} />
+            <CardFooter repo_url={svn_url} pushed_at={pushed_at} />
           ) : (
             <Skeleton />
           )}
@@ -37,18 +37,21 @@ const ProjectCard = ({ value }) => {
   );
 };
 
-const CardButtons = ({ svn_url }) => {
+const CardButtons = ({ svn_url, name, homepage }) => {
   return (
     <div className="d-grid gap-2 d-md-block">
-      <a
-        href={`${svn_url}/archive/master.zip`}
-        className="btn btn-outline-secondary mx-2"
-      >
-        <i className="fab fa-github" /> Clone Project
-      </a>
       <a href={svn_url} target=" _blank" className="btn btn-outline-secondary mx-2">
         <i className="fab fa-github" /> Repo
       </a>
+      {homepage && (
+        <a
+        href={homepage}
+        target=" _blank"
+        className="btn btn-outline-secondary mx-2"
+      >
+        Project website
+      </a>
+      )}
     </div>
   );
 };
@@ -81,18 +84,15 @@ const Language = ({ languages_url, repo_url }) => {
       Languages:{" "}
       {array.length
         ? array.map((language) => (
-          <a
+          <span
             key={language}
             className="card-link"
-            href={repo_url + `/search?l=${language}`}
-            target=" _blank"
-            rel="noopener noreferrer"
           >
             <span className="badge bg-light text-dark">
               {language}:{" "}
               {Math.trunc((data[language] / total_count) * 1000) / 10} %
             </span>
-          </a>
+          </span>
 
         ))
         : "code yet to be deployed."}
@@ -100,7 +100,7 @@ const Language = ({ languages_url, repo_url }) => {
   );
 };
 
-const CardFooter = ({ star_count, repo_url, pushed_at }) => {
+const CardFooter = ({ repo_url, pushed_at }) => {
   const [updated_at, setUpdated_at] = useState("0 mints");
 
   const handleUpdatetime = useCallback(() => {
@@ -131,12 +131,8 @@ const CardFooter = ({ star_count, repo_url, pushed_at }) => {
         target=" _blank"
         className="text-dark text-decoration-none"
       >
-        <span className="text-dark card-link mr-4">
-          <i className="fab fa-github" /> Stars{" "}
-          <span className="badge badge-dark">{star_count}</span>
-        </span>
       </a>
-      <small className="text-muted">Updated {updated_at}</small>
+      <small className="text-muted">Last updated {updated_at}</small>
     </p>
   );
 };
