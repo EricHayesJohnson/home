@@ -35,7 +35,7 @@ const repos = {
   heading: "Projects",
   gitHubUsername: "EricHayesJohnson",
   reposLength: 0,
-  specificRepos: ["finance-dashboard"],
+  specificRepos: ["emd","finance-dashboard"],
 };
 
 const getInTouch = {
